@@ -1,0 +1,7 @@
+wheel
+pymongo
+pika
+redis
+msgpack
+bcrypt
+pytest
