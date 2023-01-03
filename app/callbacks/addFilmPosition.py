@@ -9,6 +9,6 @@ def add_film_pos_callback(ch, method, props, body, db: Connector):
     for field in ["user_oid", "film_id", "pos"]:
         if field not in body:
             logging.error(f"Missing Field: {field}")
-            continue
+            return
     db.add_film_pos(body["user_oid"], body["film_id"], body['pos'])
 

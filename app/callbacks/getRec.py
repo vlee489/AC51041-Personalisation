@@ -14,11 +14,11 @@ def get_rec_callback(ch, method, props, body, db: Connector):
             complete = True
             continue
         else:
-            film = db.get_recommendation(body["user_oid"])
-            if film:
+            recommendation = db.get_recommendation(body["user_oid"])
+            if recommendation:
                 response = {
                     "state": "VALID",
-                    "films": film.dict
+                    "recommendation": recommendation.dict
                 }
                 complete = True
             else:

@@ -111,7 +111,8 @@ class Connector:
             for tag in tags:
                 update["$inc"][f"tags.{tag}"] = 1
             for category in categories:
-                update["$inc"][f"tags.{category}"] = 1
+                update["$inc"][f"categories.{category}"] = 1
+            print(update)
             self._Rec.update_one({"user_oid": user_id}, update, upsert=True)
         except InvalidId:
             return None
