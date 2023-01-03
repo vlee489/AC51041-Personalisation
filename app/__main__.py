@@ -25,6 +25,9 @@ channel.basic_consume(queue="film-rec", on_message_callback=lambda ch, method, p
 channel.queue_declare(queue="film-rec-update")  # Declare Queue
 channel.basic_consume(queue="film-rec-update", on_message_callback=lambda ch, method, properties, body:
                       update_rec_callback(ch, method, properties, body, database))
+channel.queue_declare(queue="film-history")  # Declare Queue
+channel.basic_consume(queue="film-history", on_message_callback=lambda ch, method, properties, body:
+                      get_watched_films_callback(ch, method, properties, body, database))
 # Start application consumer
 channel.start_consuming()
 connection.close()

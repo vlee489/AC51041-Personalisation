@@ -3,3 +3,4 @@ from .getFilmPosition import get_film_pos_callback
 from .removeFilmPosition import remove_film_pos_callback
 from .updateRec import update_rec_callback
 from .getRec import get_rec_callback
+from .getWatchedFilms import get_watched_films_callback
